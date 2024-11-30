@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 50px;
+  background-image: url(./images/background.jpeg);
+  background-size: cover;
+}
+
+.memory-game {
+  padding: 50px;
+  backdrop-filter: blur(30px);
+  border: 1px solid black;
+  border-radius: 30px;
+}
+
+h1 {
+  text-align: center;
+  margin: 10px 0 30px;
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  align-items: center;
+  gap: 20px;
+  user-select: none;
+  width: 300px;
+  height: 300px;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  background-image: url(images/question-mark.png);
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotateY(180deg) scaleX(-1);
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease-in-out;
+  border-radius: 10px;
+  border: solid 2px black;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.image-card {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  backface-visibility: hidden;
+}
+
+.card.selected {
+  transform: rotateY(360deg);
+}
+
+.timer,
+.attempt {
+  text-align: left;
+  font-weight: 600;
+}
+
+.timer {
+  margin-bottom: 20px;
+}
+
+.start-window {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.start-window .btn-start {
+  width: 300px;
+  height: 100px;
+  background-color: #ddd;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 30px;
+  color: #000;
+  transition: color 0.8s ease, background-color 0.5s ease;
+  box-shadow: 0 0.6em 2em rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.start-window .btn-start:hover {
+  background-color: #fff;
+  border: 2px solid #000;
+}
+
+.won-lost-window {
+  color: #000;
+  font-weight: 600;
+  font-size: 40px;
+  text-align: center;
+  text-shadow: 0 0.6em 2em rgba(0, 0, 0, 0.9);
+}
+
+.amount-attempt,
+.spent-time {
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+.align-center {
+  justify-content: center;
+}
+
+@media (min-width: 499px) {
+  .game-board {
+    width: 500px;
+    height: 500px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
